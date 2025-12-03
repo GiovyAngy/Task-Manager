@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Tasks</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Task List </h1>
+  <p>Um eine Datenbank zu verbinden, verwenden Sie die Konsole <a href="http://localhost:8081/h2-console" target="_blank">hier</a> klicken</p>
+  <form th:action="@{/tasks}" method="post">
+    <input type="text" name="title" placeholder="New task..." required/>
+    <button type="submit">Add</button>
+  </form>
+  <ul>
+    <li th:each="t : ${tasks}" th:text="${t.title} + ' — ' + ${t.status}"></li>
+  </ul>
+</body>
+</html>
